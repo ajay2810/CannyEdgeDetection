@@ -1,0 +1,14 @@
+<!--launch file for canny edge detection filter for my face using cv_camera-->
+
+<launch>
+<node name="custom_cv_camera" pkg ="canny_edge_my_face" type="custom_cv_camera" respawn="false" output="screen"/>
+<node name="canny_edge" pkg ="canny_edge_my_face" type="canny_edge" respawn="false" output="screen"/>
+<!-- node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+<remap from="image" to="/usb_cam/image_raw" />
+</node -->
+<!-- node name="image_view1" pkg="image_view" type="image_view" respawn="false" output="screen">
+<remap from="image" to="/usb_cam/image_canny" />
+</node -->
+<node pkg="rviz" type="rviz" name="rviz" args="-d $(find canny_edge_my_face)/rvizcfg/image_view.rviz"/>
+<node name="rqt_reconfigure" pkg ="rqt_reconfigure" type="rqt_reconfigure" respawn="false" output="screen"/>
+</launch>
